@@ -1,0 +1,22 @@
+{
+	"movies": [
+		{
+			"title" : "The Grudge",
+			"year" : "2004",
+			"genre" : "Horror",
+			"director" : "Takashi Shimizu"
+			},
+			{
+			"title" : "The Haley",
+			"year" : "2005",
+			"genre" : "Action",
+			"director" : "Jackie chan"
+			},
+			{
+			"title" : "Logitech",
+			"year" : "2006",
+			"genre" : "Drama",
+			"director": "Jet Lee"
+			}
+	]
+}

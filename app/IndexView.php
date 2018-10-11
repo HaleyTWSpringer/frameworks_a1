@@ -27,34 +27,34 @@ class IndexView extends View
         $this->modelRecCourses = $m->getRecCourses();
         $this->modelRecInstructors = $m->getRecInstructors();
 
-        if(!empty($this->modelPopCourses))
-        {
-            foreach ($this-> modelPopCourses as $key => $val)
+            if(!empty($this->modelPopCourses))
             {
-                if(!is_array($val) && !is_object($val))
+                foreach ($this-> modelPopCourses as $key => $val)
                 {
-                    $this->addVar($key,$val);
+                    if(!is_array($val) && !is_object($val))
+                    {
+                        $this->addVar($key,$val);
+                    }
+                }
+            }
+
+            $this->table[0] = $this->mostPopCourses;
+            $this->popCourses = false;
+            $this->count = 0;
+
+
+        if (!empty($this->modelPopInstructors)) {
+
+            foreach ($this->modelPopInstructors as $key => $val) {
+                if (!is_array($val) && !is_object($val)) {
+                    //echo $key . "=" . $val;
+                    $this->addVar($key, $val);
                 }
             }
         }
 
-        $this->table[0] = $this->mostPopCourses;
-        $this->popCourses = false;
-        $this->count = 0;
-
-        if(!empty($this->modelPopInstructors))
-        {
-            foreach($this->modelPopInstructors as $key => $val)
-            {
-                if(!is_array($val) && !is_object($val))
-                    {
-                        $this->addVar($key, $val);
-                    }
-            }
-        }
-
         $this->table[1] = $this->mostPopInstructors;
-        $this->popCourses = false;
+        $this->popTeachers = false;
         $this->count = 0;
 
         if (!empty($this->modelRecCourses)) {
@@ -67,7 +67,6 @@ class IndexView extends View
         }
 
         $this->table[2] = $this->mostRecCourses;
-        $this->popCourses = false;
         $this->count = 0;
 
         if (!empty($this->modelRecTeachers)) {
@@ -143,7 +142,6 @@ class IndexView extends View
 
                 break;
             case "instructor_name":
-
                 if ($this->popTeachers === true) {
                     $this->mostPopInstructors[$this->count][$name] = $value;
                 } else {

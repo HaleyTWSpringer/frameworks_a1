@@ -13,7 +13,7 @@ include("Model.php");
         {
             echo "Made it to IndexModel";
             $request = "$this->jsonCourses";
-            $request2 = "$this->jsonCoursesI";
+            $request2 = "$this->jsonInstruct";
             if(file_exists($request) || file_exists($request2))
             {
 
@@ -49,7 +49,7 @@ include("Model.php");
 
 
                 $jsonRecInstructorIterator = new RecursiveIteratorIterator(
-                    new RecursiveArrayIterator($json_courses),
+                    new RecursiveArrayIterator($json_instructors),
                     RecursiveIteratorIterator::SELF_FIRST);
 
 

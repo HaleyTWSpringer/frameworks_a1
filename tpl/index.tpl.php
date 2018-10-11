@@ -35,6 +35,8 @@
         $imagepath = "../images/";
         $sectionLimit = 1;
 
+
+
         for($i = 0; $i < count($this->mostPopCourses); $i++)
         {
             $course_id = (int)$this->mostPopCourses[$i]["course_id"] - 1;
@@ -56,16 +58,17 @@
             echo " <div class=\"centered\">";
             $sectionLimit = 1;
         }
+
+
+        }
+        echo "</div>";
+
         ?>
+
 
     <h1>Learner Recommended</h1>
     <div class="centered">
-        <?php
 
-        }
-    echo "</div>";
-
-        ?>
 
     </div>
     <footer>

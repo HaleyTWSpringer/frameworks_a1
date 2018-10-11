@@ -2,12 +2,12 @@
 <html lang="en-GB">
 <head>
     <title>Sign Up|Quwius</title>
-    <link rel="stylesheet" href="css/styles.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../css/styles.css" type="text/css" media="screen">
     <meta charset="utf-8">
 </head>
 <body>
 <nav>
-    <a href="#"><img src="images/logo.png" alt="UWI online"></a>
+    <a href="#"><img src="../images/logo.png" alt="UWI online"></a>
     <ul>
         <li><a href="index.php?controller=Courses">Courses</a></li>
         <li><a href="index.php?controller=Streams">Streams</a></li>

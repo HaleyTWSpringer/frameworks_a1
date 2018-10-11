@@ -58,7 +58,7 @@ abstract class Model implements Observable
     function verify($data)
     {
         if (ctype_alpha($data)) {
-            return true;
+                return true;
         } else {
             return false;
         }

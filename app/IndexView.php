@@ -8,9 +8,8 @@ class IndexView extends View
     protected $modelPopInstructors;
     protected $modelRecCourses;
     protected $modelRecInstructors;
-    protected $popTeachers = true;
-    protected $popCourses = true;
-    protected $modebit = 0;
+    protected $switch1 = 0;
+    protected $switch2 = 0;
     protected $count = 0;
     protected $mostPopCourses = [];
     protected $mostPopInstructors = [];
@@ -39,7 +38,7 @@ class IndexView extends View
             }
 
             $this->table[0] = $this->mostPopCourses;
-            $this->popCourses = false;
+            $this->switch1 = 1;
             $this->count = 0;
 
 
@@ -54,7 +53,7 @@ class IndexView extends View
         }
 
         $this->table[1] = $this->mostPopInstructors;
-        $this->popTeachers = false;
+        $this->switch2 = 1;
         $this->count = 0;
 
         if (!empty($this->modelRecCourses)) {
@@ -89,14 +88,16 @@ class IndexView extends View
     {
         switch ($name) {
             case "course_id":
-                if ($this->popCourses === true) {
+                if ($this->switch1 === 0)
+                {
                     $this->mostPopCourses[$this->count][$name] = $value;
                 } else {
                     $this->mostRecCourses[$this->count][$name] = $value;
                 }
                 break;
             case "course_name":
-                if ($this->popCourses === true) {
+                if ($this->switch1 === 0)
+                {
 
                     $this->mostPopCourses[$this->count][$name] = $value;
                 } else {
@@ -104,28 +105,32 @@ class IndexView extends View
                 }
                 break;
             case "course_description":
-                if ($this->popCourses === true) {
+                if ($this->switch1 === 0)
+                {
                     $this->mostPopCourses[$this->count][$name] = $value;
                 } else {
                     $this->mostRecCourses[$this->count][$name] = $value;
                 }
                 break;
             case "course_recommendation_count":
-                if ($this->popCourses === true) {
+                if ($this->switch1 === 0)
+                {
                     $this->mostPopCourses[$this->count][$name] = $value;
                 } else {
                     $this->mostRecCourses[$this->count][$name] = $value;
                 }
                 break;
             case "course_access_count":
-                if ($this->popCourses === true) {
+                if ($this->switch1 === 0)
+                {
                     $this->mostPopCourses[$this->count][$name] = $value;
                 } else {
                     $this->mostRecCourses[$this->count][$name] = $value;
                 }
                 break;
             case "course_image":
-                if ($this->popCourses === true) {
+                if ($this->switch1 === 0)
+                {
                     $this->mostPopCourses[$this->count][$name] = $value;
                 } else {
                     $this->mostRecCourses[$this->count][$name] = $value;
@@ -133,7 +138,8 @@ class IndexView extends View
                 $this->count++;
                 break;
             case "instructor_id":
-                if ($this->popTeachers === true) {
+                if ($this->switch2 === 0)
+                {
 
                     $this->mostPopInstructors[$this->count][$name] = $value;
                 } else {
@@ -142,7 +148,8 @@ class IndexView extends View
 
                 break;
             case "instructor_name":
-                if ($this->popTeachers === true) {
+                if ($this->switch2 === 0)
+                {
                     $this->mostPopInstructors[$this->count][$name] = $value;
                 } else {
                     $this->mostRecInstructors[$this->count][$name] = $value;

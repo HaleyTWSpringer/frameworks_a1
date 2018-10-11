@@ -7,7 +7,7 @@
 </head>
 <body>
 <nav>
-    <a href="#"><img src="images/logo.png" alt="UWI online"></a>
+    <a href="#"><img src="../images/logo.png" alt="UWI online"></a>
     <ul>
         <li><a href="../controller/Controller.php?controller=Courses">Courses</a></li>
         <li><a href="../controller/Controller.php?controller=Streams">Streams</a></li>
@@ -34,10 +34,10 @@
         <?php
         $imagepath = "../images/";
         $sectionLimit = 1;
+        $columns = 0;
 
 
-
-        for($i = 0; $i < count($this->mostPopCourses); $i++)
+        for($i = 0; $i < 8; $i++)
         {
             $course_id = (int)$this->mostPopCourses[$i]["course_id"] - 1;
                 ?>
@@ -69,6 +69,37 @@
     <h1>Learner Recommended</h1>
     <div class="centered">
 
+        <?php
+
+        // echo count($this->mostRecCourses);
+        // echo count($this->mostRecTeachers);
+
+        $Limit = 1;
+
+        for($i = 0; $i < 8; $i++) {
+            $course_id = (int)$this->mostRecCourses[$i]["course_id"] - 1;
+            ?>
+
+            <section>
+                <a href="<?php echo $imagepath . $this->mostRecCourses[$i]["course_image"]; ?>"><img
+                            src="<?php echo $imagepath . $this->mostRecCourses[$i]["course_image"]; ?>"
+                            alt="<?php echo $this->mostRecCourses[$i]["course_name"]; ?>" title="<?php echo $this->mostRecCourses[$i]["course_name"]; ?>">
+                    <span class="course-title"><?php echo $this->mostRecCourses[$i]["course_name"]; ?></span>
+                    <span><?php echo $this->mostRecInstructors[$course_id]["instructor_name"]; ?></span></a>
+            </section>
+
+            <?php
+            $Limit++;
+            if ($Limit == 5) {
+                echo " </div>";
+                echo " <div class=\"centered\">";
+                $Limit = 1;
+            }
+        }
+
+
+        echo "</div>";
+        ?>
 
     </div>
     <footer>
